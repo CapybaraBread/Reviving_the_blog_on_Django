@@ -59,33 +59,26 @@
           <div class="row">
             <div class="col-lg-8">
               <div class="main_blog_details">
-                <img class="img-fluid" src="{% static 'img/blog/blog4.png' %}" alt="">
-                <h4>Cartridge Is Better Than Ever A Discount Toner</h4>
+                {% if post.image_url %}
+                <img class="img-fluid" src="{{ post.image_url }}" alt="{{ post.title }}">
+                {% else %}
+                <img class="img-fluid" src="{% static 'img/banner/blog.png' %}" alt="{{ post.title }}">
+                {% endif %}
+                <h4>{{ post.title }}</h4>
                 <div class="user_details">
                   <div class="float-right">
                     <div class="media">
                       <div class="media-body">
-                        <h5>Mark wiens</h5>
-                        <p>12 Dec, 2017 11:21 am</p>
+                        <h5>{{ post.author }}</h5>
+                        <p>{{ post.published_at|date:"F j, Y, P" }}</p>
                       </div>
                     </div>
                   </div>
                 </div>
-                <p>
-                  MCSE boot camps have its supporters and its detractors. Some people do not understand why
-                  you should have to spend money on boot camp when you can get the MCSE study materials yourself
-                  at a fraction of the camp price.
-                </p>
-                <p>
-                  Boot camps have its supporters and its detractors. Some people do not understand why you
-                  should have to spend money on boot camp when you can get the MCSE study materials yourself.
-                </p>
-                <blockquote class="blockquote">
-                  <p class="mb-0">
-                    MCSE boot camps have its supporters and its detractors. Some people do not understand why
-                    you should have to spend money on boot camp when you can get the MCSE study materials yourself.
-                  </p>
-                </blockquote>
+                <p>{{ post.text }}</p>
+                <div class="news_d_footer">
+                  <a href="#"><i class="ti-heart"></i>{{ post.likes_amount }} people like this</a>
+                </div>
               </div>
             </div>
 
