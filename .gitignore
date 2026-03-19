@@ -2,7 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+.media/
 # Virtual environments
 .venv/
 venv/
@@ -48,5 +48,5 @@ staticfiles/
 .DS_Store
 Thumbs.db
 
-# Uncomment if media uploads should stay local only
-# media/
+# Media uploads
+media/
